@@ -29,10 +29,13 @@ input,button{
 }
 
 @media (max-width:768px) {
+
   .matrix {
     text-align: center;
   }
+
 }
+
 .todo {
   display: block;
   width: 500px;

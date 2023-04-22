@@ -33,18 +33,18 @@ var createNewTaskElement=function(taskString){
     var deleteButtonImg=document.createElement("img");//delete button image
 
     label.innerText=taskString;
-    label.classList.add('task', 'label');
+    label.classList.add('task-item__task', 'label');
 
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkBox.classList.add('input-checkbox');
+    checkBox.classList.add('task-item__input-checkbox');
     editInput.type="text";
-    editInput.classList.add('input', 'task');
+    editInput.classList.add('input', 'task-item__task');
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.classList.add('edit', 'btn');
+    editButton.classList.add('task-item__edit', 'btn');
 
-    deleteButton.classList.add('delete', 'btn');
+    deleteButton.classList.add('task-item__delete', 'btn');
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.classList.add('img');
     deleteButtonImg.setAttribute("alt", "cross");
@@ -87,7 +87,7 @@ var editTask=function(){
 
     var editInput=listItem.querySelector('.input');
     var label=listItem.querySelector(".label");
-    var editBtn=listItem.querySelector(".edit");
+    var editBtn=listItem.querySelector(".task-item__edit");
     var containsClass=listItem.classList.contains("edit-mode");
     //If class of the parent is .editmode
     if(containsClass){
@@ -158,9 +158,9 @@ addButton.addEventListener("click",ajaxRequest);
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
-    var checkBox=taskListItem.querySelector(".input-checkbox");
-    var editButton=taskListItem.querySelector(".btn.edit");
-    var deleteButton=taskListItem.querySelector(".btn.delete");
+var checkBox=taskListItem.querySelector(".task-item__input-checkbox");
+var editButton=taskListItem.querySelector(".btn.task-item__edit");
+var deleteButton=taskListItem.querySelector(".btn.task-item__delete");
 
 
     //Bind editTask to edit button.
